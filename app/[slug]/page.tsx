@@ -1,5 +1,6 @@
-import { DocumentRenderer } from '@keystatic/core/renderer';
-import { reader } from '../reader';
+import { DocumentRenderer } from "@keystatic/core/renderer";
+import { format } from "date-fns";
+import { reader } from "../reader";
 
 export default async function Post({ params }: { params: { slug: string } }) {
   const { slug } = params;
@@ -9,11 +10,14 @@ export default async function Post({ params }: { params: { slug: string } }) {
   if (!post) return <div>Post not found!</div>;
 
   return (
-    <div>
-      <h1>{post.title}</h1>
-      <div>
-        <DocumentRenderer document={await post.content()} />
+    <div className="space-y-4">
+      <div className="space-y-2">
+        <h1 className="text-2xl">{post.title}</h1>
+        <p className="text-sm text-gray-400">
+          {format(new Date(post.date), "MMMM dd, yyyy")}
+        </p>
       </div>
+      <DocumentRenderer document={await post.content()} />
     </div>
   );
 }
@@ -21,7 +25,7 @@ export default async function Post({ params }: { params: { slug: string } }) {
 export async function generateStaticParams() {
   const slugs = await reader.collections.posts.list();
 
-  return slugs.map(slug => ({
+  return slugs.map((slug) => ({
     slug,
   }));
 }

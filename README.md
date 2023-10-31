@@ -1,20 +1,5 @@
-# Keystatic in Next.js
+# dpeek.com
 
-This template shows how you can use Keystatic in a Next.js site that utilises
-the `app` directory.
+This is my website. It's built with NextJS, Keystatic and hosted on Vercel.
 
-To setup:
-
-```bash
-npm install
-```
-
-To run:
-
-```
-npm run dev
-```
-
-Admin UI: [http://127.0.0.1:3000/keystatic](http://127.0.0.1:3000/keystatic)
-
-Homepage: [http://localhost:3000](http://localhost:3000)
+It is a work in progress.

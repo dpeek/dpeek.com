@@ -49,7 +49,7 @@ export default async function Page() {
             <Link
               className="block border p-4 border-gray-600 hover:border-gray-400 transition-all my-[-1px] relative hover:z-10"
               key={post.slug}
-              href={`/${post.slug}`}
+              href={`/posts/${post.slug}`}
             >
               {post.entry.title}
             </Link>

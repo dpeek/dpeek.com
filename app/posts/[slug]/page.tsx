@@ -1,7 +1,7 @@
 import { DocumentRenderer } from "@keystatic/core/renderer";
 import { format } from "date-fns";
 import { Metadata } from "next";
-import { reader } from "../reader";
+import { reader } from "../../reader";
 
 const renderers = {
   inline: {

@@ -2,6 +2,17 @@ import { DocumentRenderer } from "@keystatic/core/renderer";
 import { format } from "date-fns";
 import { reader } from "../reader";
 
+const renderers = {
+  inline: {
+    link: (props: any) => (
+      <a
+        {...props}
+        className="text-blue-400 hover:text-blue-300 transition-all"
+      />
+    ),
+  },
+};
+
 export default async function Post({ params }: { params: { slug: string } }) {
   const { slug } = params;
 
@@ -17,7 +28,7 @@ export default async function Post({ params }: { params: { slug: string } }) {
           {format(new Date(post.date), "MMMM dd, yyyy")}
         </p>
       </div>
-      <DocumentRenderer document={await post.content()} />
+      <DocumentRenderer document={await post.content()} renderers={renderers} />
     </div>
   );
 }

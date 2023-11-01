@@ -1,5 +1,6 @@
 import { DocumentRenderer } from "@keystatic/core/renderer";
 import { format } from "date-fns";
+import { Metadata } from "next";
 import { reader } from "../reader";
 
 const renderers = {
@@ -13,7 +14,20 @@ const renderers = {
   },
 };
 
-export default async function Post({ params }: { params: { slug: string } }) {
+type PageProps = {
+  params: { slug: string };
+};
+
+export async function generateMetadata({ params }: PageProps) {
+  const post = await reader.collections.posts.read(params.slug);
+
+  return {
+    title: post?.title ?? "",
+    description: post?.description ?? "",
+  } satisfies Metadata;
+}
+
+export default async function Post({ params }: PageProps) {
   const { slug } = params;
 
   const post = await reader.collections.posts.read(slug);

@@ -1,11 +1,18 @@
+import { Metadata } from "next";
 import Link from "next/link";
 import { reader } from "./reader";
 
-export default async function Homepage() {
+export const metadata: Metadata = {
+  title: "David Peek - Developer, Entrepreneur, Optimist",
+  description:
+    "I'm a fullstack developer, entrepreneur and technology optimist. I'm co-founder and CTO of estii.com - an estimation and pricing platform for solution providers.",
+};
+
+export default async function Page() {
   const posts = await reader.collections.posts.all();
   posts.sort(
     (a, b) =>
-      new Date(a.entry.date).getTime() - new Date(b.entry.date).getTime()
+      new Date(a.entry.date).getTime() - new Date(b.entry.date).getTime(),
   );
 
   return (

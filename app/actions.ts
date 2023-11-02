@@ -1,5 +1,7 @@
 "use server";
 
+import { unstable_cache } from "next/cache";
+
 const endpoint = "https://stats.twitchy.workers.dev";
 
 export async function trackView(pathname: string) {
@@ -9,8 +11,12 @@ export async function trackView(pathname: string) {
   }).catch(() => {});
 }
 
-export async function getViews() {
-  const res = await fetch(endpoint, { next: { revalidate: 5 } });
-  const json = await res.json().catch(() => []);
-  return json as { pathname: string; count: number }[];
-}
+export const getViews = unstable_cache(
+  async () => {
+    const res = await fetch(endpoint);
+    const json = await res.json().catch(() => []);
+    return json as { pathname: string; count: number }[];
+  },
+  ["views"],
+  { revalidate: 30 },
+);

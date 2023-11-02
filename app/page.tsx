@@ -32,14 +32,17 @@ export default async function Page() {
         </p>
         <p>
           I build software that lets small teams do ambitious things. Generally,
-          that means pluging together the best tools from the amazing JavaScript
-          ecosystem and stiching it all together with automation and love.
+          that means plugging together tools from the amazing JavaScript
+          ecosystem with automation, duct-tape and love.
         </p>
         <p>
-          One day (today actually), I decided I should have a home on the
-          internet. I've started a bunch of these over the years, to be honest,
-          so I wouldn't get your hopes up for this one to last. But the only way
-          to do something is to just start, right?
+          I decided I should have a home on the internet. Avid readers will know
+          that I've started a bunch of two-post blogs over the years, so I
+          wouldn't get your hopes up for this one lasting.
+        </p>
+        <p>
+          But if you want to be one of those people who blog, at some point
+          you've got to start another blog... right?
         </p>
       </div>
       <div className="space-y-4">

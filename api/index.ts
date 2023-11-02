@@ -8,22 +8,26 @@ export class Counter implements DurableObject {
     readonly env: Env,
   ) {}
 
-  async fetch(request: Request) {
-    const url = new URL(request.url);
-    const pathname = url.searchParams.get("pathname") ?? "";
+  async fetch(req: Request) {
     const headers = { "Access-Control-Allow-Origin": "*" };
-
-    switch (url.pathname) {
-      case "/view": {
+    const { pathname } = new URL(req.url);
+    switch (req.method) {
+      case "GET":
+        const list = await this.state.storage.list<number>();
+        const counts = Array.from(list.entries()).map(([pathname, count]) => ({
+          pathname,
+          count,
+        }));
+        return Response.json(counts, { headers });
+      case "POST":
         const count = (await this.state.storage.get<number>(pathname)) ?? 0;
         await this.state.storage.put(pathname, count + 1);
-        return new Response(String(count + 1), { headers });
-      }
-      case "/count":
-        const count = (await this.state.storage.get<number>(pathname)) ?? 0;
-        return new Response(String(count), { headers });
+        return new Response("Ok", { headers });
+      case "DELETE":
+        await this.state.storage.deleteAll();
+        return new Response("Ok", { headers });
       default:
-        return new Response("Not found", { status: 404, headers });
+        return new Response("Method not allowed", { status: 405, headers });
     }
   }
 }
@@ -31,6 +35,6 @@ export class Counter implements DurableObject {
 export default {
   fetch(request: Request, env: Env) {
     const counter = env.COUNTER.get(env.COUNTER.idFromName("default"));
-    return counter.fetch(request);
+    return counter.fetch(new Request(request));
   },
 } satisfies ExportedHandler<Env>;

@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { TrackCount } from "./posts/track";
+import { getViews } from "./actions";
+import { Counter } from "./counter";
 import { reader } from "./reader";
 
 export const metadata: Metadata = {
@@ -10,6 +11,7 @@ export const metadata: Metadata = {
 };
 
 export default async function Page() {
+  const views = await getViews();
   const posts = await reader.collections.posts.all();
   posts.sort(
     (a, b) =>
@@ -17,7 +19,7 @@ export default async function Page() {
   );
 
   return (
-    <div className="mx-auto max-w-3xl p-6 space-y-10">
+    <div className="mx-auto max-w-xl p-6 space-y-10">
       <p>
         <a href="/" className="text-gray-400 hover:text-gray-200">
           Home
@@ -56,7 +58,7 @@ export default async function Page() {
             >
               <h3>{post.entry.title}</h3>
               <p className="text-gray-500 text-sm">
-                <TrackCount pathname={`/posts/${post.slug}`} />
+                <Counter views={views} pathname={`/posts/${post.slug}`} />
               </p>
             </Link>
           ))}

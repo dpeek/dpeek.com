@@ -1,6 +1,6 @@
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="mx-auto max-w-3xl p-6 space-y-10">
+    <div className="mx-auto max-w-xl p-6 space-y-10">
       <p>
         <a href="/" className="text-gray-400 hover:text-gray-200">
           Home

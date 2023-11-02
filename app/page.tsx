@@ -1,8 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import { Suspense } from "react";
-import { getViews } from "./actions";
-import { Counter } from "./counter";
 import { reader } from "./reader";
 
 export const metadata: Metadata = {
@@ -12,7 +10,7 @@ export const metadata: Metadata = {
 };
 
 async function PostLink({ slug, title }: { slug: string; title: string }) {
-  const views = await getViews();
+  // const views = await getViews();
   const href = `/posts/${slug}`;
   return (
     <Link
@@ -22,7 +20,8 @@ async function PostLink({ slug, title }: { slug: string; title: string }) {
     >
       <h3>{title}</h3>
       <p className="text-gray-500 text-sm">
-        <Counter views={views} pathname={href} />
+        100 views
+        {/* <Counter views={views} pathname={href} /> */}
       </p>
     </Link>
   );

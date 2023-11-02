@@ -1,6 +1,7 @@
 import { DocumentRenderer } from "@keystatic/core/renderer";
 import { format } from "date-fns";
 import { Metadata } from "next";
+import { Suspense } from "react";
 import { getViews } from "../../actions";
 import { Counter } from "../../counter";
 import { reader } from "../../reader";
@@ -18,11 +19,15 @@ export async function generateMetadata({ params }: PageProps) {
   } satisfies Metadata;
 }
 
+async function View() {
+  const views = await getViews();
+  return <Counter views={views} track />;
+}
+
 export default async function Post({ params }: PageProps) {
   const { slug } = params;
 
   const post = await reader.collections.posts.read(slug);
-  const views = await getViews();
 
   if (!post) return <div>Post not found!</div>;
 
@@ -32,7 +37,9 @@ export default async function Post({ params }: PageProps) {
       <div className="text-gray-500 text-sm flex justify-between">
         <p>{format(new Date(post.date), "MMMM dd, yyyy")}</p>
         <p>
-          <Counter views={views} track />
+          <Suspense>
+            <View />
+          </Suspense>
         </p>
       </div>
       <DocumentRenderer document={await post.content()} />

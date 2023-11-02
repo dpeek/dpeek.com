@@ -21,5 +21,5 @@ export function Counter(props: Props) {
     }
   }, [pathname, props.track]);
 
-  return Intl.NumberFormat().format(views?.count ?? 0) + " views";
+  return <p>{Intl.NumberFormat().format(views?.count ?? 0)} views</p>;
 }

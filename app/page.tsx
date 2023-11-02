@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { Suspense } from "react";
 import { reader } from "./reader";
+import { Views } from "./views";
 
 export const metadata: Metadata = {
   title: "David Peek - Developer, Entrepreneur, Optimist",
@@ -9,8 +9,7 @@ export const metadata: Metadata = {
     "I'm a fullstack developer, entrepreneur and technology optimist. I'm co-founder and CTO of estii.com - an estimation and pricing platform for solution providers.",
 };
 
-async function PostLink({ slug, title }: { slug: string; title: string }) {
-  // const views = await getViews();
+function PostLink({ slug, title }: { slug: string; title: string }) {
   const href = `/posts/${slug}`;
   return (
     <Link
@@ -19,10 +18,7 @@ async function PostLink({ slug, title }: { slug: string; title: string }) {
       href={href}
     >
       <h3>{title}</h3>
-      <p className="text-gray-500 text-sm">
-        100 views
-        {/* <Counter views={views} pathname={href} /> */}
-      </p>
+      <Views pathname={href} />
     </Link>
   );
 }
@@ -65,17 +61,15 @@ export default async function Page() {
       </div>
       <div className="space-y-4">
         <p>Here are my most popular posts:</p>
-        <Suspense>
-          <div>
-            {posts.map((post) => (
-              <PostLink
-                key={post.slug}
-                slug={post.slug}
-                title={post.entry.title}
-              />
-            ))}
-          </div>
-        </Suspense>
+        <div>
+          {posts.map((post) => (
+            <PostLink
+              key={post.slug}
+              slug={post.slug}
+              title={post.entry.title}
+            />
+          ))}
+        </div>
       </div>
       <p>
         <a

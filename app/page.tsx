@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
+import { Suspense } from "react";
 import { getViews } from "./actions";
 import { Counter } from "./counter";
 import { reader } from "./reader";
@@ -49,20 +50,22 @@ export default async function Page() {
       </div>
       <div className="space-y-4">
         <p>Here are my most popular posts:</p>
-        <div>
-          {posts.map((post) => (
-            <Link
-              className="block border p-4 no-underline border-gray-600 hover:border-gray-400 transition-all my-[-1px] relative hover:z-10"
-              key={post.slug}
-              href={`/posts/${post.slug}`}
-            >
-              <h3>{post.entry.title}</h3>
-              <p className="text-gray-500 text-sm">
-                <Counter views={views} pathname={`/posts/${post.slug}`} />
-              </p>
-            </Link>
-          ))}
-        </div>
+        <Suspense>
+          <div>
+            {posts.map((post) => (
+              <Link
+                className="block border p-4 no-underline border-gray-600 hover:border-gray-400 transition-all my-[-1px] relative hover:z-10"
+                key={post.slug}
+                href={`/posts/${post.slug}`}
+              >
+                <h3>{post.entry.title}</h3>
+                <p className="text-gray-500 text-sm">
+                  <Counter views={views} pathname={`/posts/${post.slug}`} />
+                </p>
+              </Link>
+            ))}
+          </div>
+        </Suspense>
       </div>
       <p>
         <a

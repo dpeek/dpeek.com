@@ -22,15 +22,12 @@ export default async function Page() {
           Home
         </a>
       </p>
-      <div className="space-y-4">
+      <div className="prose prose-invert">
         <h1 className="text-2xl">Hello, I'm David Peek</h1>
         <p>
           I'm a fullstack developer, entrepreneur and technology optimist. I'm
-          co-founder and CTO of{" "}
-          <a className="underline" href="https://estii.com">
-            estii.com
-          </a>{" "}
-          - an estimation and pricing platform for solution providers.
+          co-founder and CTO of <a href="https://estii.com">estii.com</a> - an
+          estimation and pricing platform for solution providers.
         </p>
         <p>
           I build software that lets small teams do ambitious things. Generally,
@@ -44,17 +41,17 @@ export default async function Page() {
           to do something is to just start, right?
         </p>
         <p>Here are my most popular posts:</p>
-        <ul>
+        <div>
           {posts.map((post) => (
             <Link
-              className="block border p-4 border-gray-600 hover:border-gray-400 transition-all my-[-1px] relative hover:z-10"
+              className="block border p-4 no-underline border-gray-600 hover:border-gray-400 transition-all my-[-1px] relative hover:z-10"
               key={post.slug}
               href={`/posts/${post.slug}`}
             >
               {post.entry.title}
             </Link>
           ))}
-        </ul>
+        </div>
       </div>
       <p>
         <a

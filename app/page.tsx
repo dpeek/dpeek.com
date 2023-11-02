@@ -11,8 +11,24 @@ export const metadata: Metadata = {
     "I'm a fullstack developer, entrepreneur and technology optimist. I'm co-founder and CTO of estii.com - an estimation and pricing platform for solution providers.",
 };
 
-export default async function Page() {
+async function PostLink({ slug, title }: { slug: string; title: string }) {
   const views = await getViews();
+  const href = `/posts/${slug}`;
+  return (
+    <Link
+      className="block border p-4 no-underline border-gray-600 hover:border-gray-400 transition-all my-[-1px] relative hover:z-10"
+      key={slug}
+      href={href}
+    >
+      <h3>{title}</h3>
+      <p className="text-gray-500 text-sm">
+        <Counter views={views} pathname={href} />
+      </p>
+    </Link>
+  );
+}
+
+export default async function Page() {
   const posts = await reader.collections.posts.all();
   posts.sort(
     (a, b) =>
@@ -53,16 +69,11 @@ export default async function Page() {
         <Suspense>
           <div>
             {posts.map((post) => (
-              <Link
-                className="block border p-4 no-underline border-gray-600 hover:border-gray-400 transition-all my-[-1px] relative hover:z-10"
+              <PostLink
                 key={post.slug}
-                href={`/posts/${post.slug}`}
-              >
-                <h3>{post.entry.title}</h3>
-                <p className="text-gray-500 text-sm">
-                  <Counter views={views} pathname={`/posts/${post.slug}`} />
-                </p>
-              </Link>
+                slug={post.slug}
+                title={post.entry.title}
+              />
             ))}
           </div>
         </Suspense>

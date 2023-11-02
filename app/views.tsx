@@ -5,7 +5,7 @@ import { getViews } from "./actions";
 import { Counter } from "./counter";
 
 const fallback = (
-  <p className="h-4 w-12 rounded-full bg-gray-700 animate-pulse" />
+  <p className="rounded bg-gray-700 text-gray-700 animate-pulse">X views</p>
 );
 
 type Props = {

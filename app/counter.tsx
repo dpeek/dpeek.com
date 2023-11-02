@@ -14,7 +14,6 @@ export function Counter(props: Props) {
   const current = usePathname();
   const pathname = props.pathname ?? current;
   const views = props.views.find((views) => views.pathname === pathname);
-
   useEffect(() => {
     if (props.track) {
       trackView(pathname);

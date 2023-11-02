@@ -4,6 +4,8 @@ import { Metadata } from "next";
 import { reader } from "../../reader";
 import { Views } from "../../views";
 
+export const runtime = "nodejs";
+
 type PageProps = {
   params: { slug: string };
 };
@@ -27,7 +29,7 @@ export default async function Post({ params }: PageProps) {
   return (
     <div className="prose prose-invert prose-img:rounded">
       <h1 className="text-3xl mb-0">{post.title}</h1>
-      <div className="text-gray-500 text-sm flex justify-between">
+      <div className="text-gray-500 text-sm flex justify-between items-center">
         <p>{format(new Date(post.date), "MMMM dd, yyyy")}</p>
         <Views track />
       </div>

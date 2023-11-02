@@ -3,6 +3,8 @@ import Link from "next/link";
 import { reader } from "./reader";
 import { Views } from "./views";
 
+export const runtime = "nodejs";
+
 export const metadata: Metadata = {
   title: "David Peek - Developer, Entrepreneur, Optimist",
   description:
@@ -18,7 +20,9 @@ function PostLink({ slug, title }: { slug: string; title: string }) {
       href={href}
     >
       <h3>{title}</h3>
-      <Views pathname={href} />
+      <div className="text-gray-500 text-sm">
+        <Views pathname={href} />
+      </div>
     </Link>
   );
 }

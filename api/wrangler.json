@@ -1,0 +1,16 @@
+{
+  "account_id": "2b609a00c5274938a790ba00b5a9c873",
+  "name": "stats",
+  "main": "index.ts",
+  "compatibility_date": "2023-11-02",
+  "workers_dev": true,
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "COUNTER",
+        "class_name": "Counter"
+      }
+    ]
+  },
+  "migrations": [{ "tag": "v1", "new_classes": ["Counter"] }]
+}

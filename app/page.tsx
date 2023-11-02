@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
+import { TrackCount } from "./posts/track";
 import { reader } from "./reader";
 
 export const metadata: Metadata = {
@@ -40,6 +41,8 @@ export default async function Page() {
           so I wouldn't get your hopes up for this one to last. But the only way
           to do something is to just start, right?
         </p>
+      </div>
+      <div className="space-y-4">
         <p>Here are my most popular posts:</p>
         <div>
           {posts.map((post) => (
@@ -48,7 +51,10 @@ export default async function Page() {
               key={post.slug}
               href={`/posts/${post.slug}`}
             >
-              {post.entry.title}
+              <h3>{post.entry.title}</h3>
+              <p className="text-gray-500 text-sm">
+                <TrackCount pathname={`/posts/${post.slug}`} />
+              </p>
             </Link>
           ))}
         </div>

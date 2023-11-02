@@ -1,27 +1,25 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { use } from "react";
+import { useEffect, useState } from "react";
 
-async function track(action: string, pathname) {
-  try {
-    const res = await fetch(
-      `https://stats.twitchy.workers.dev/${action}?pathname=${pathname}`,
-    );
-    const data = await res.text();
-    return parseInt(data ?? "0", 10);
-  } catch (e) {
-    return 0;
-  }
+function useCount(action: string, pathname: string) {
+  const [count, setCount] = useState(0);
+  useEffect(() => {
+    fetch(`https://stats.twitchy.workers.dev/${action}?pathname=${pathname}`)
+      .then((res) => res.text())
+      .then((text) => setCount(parseInt(text, 10)))
+      .catch(() => {});
+  }, [action, pathname]);
+  return count;
 }
 
 export function TrackCount({ pathname }: { pathname: string }) {
-  const count = use(track("count", pathname));
+  const count = useCount("count", pathname);
   return <>{Intl.NumberFormat().format(count)} views</>;
 }
 
 export function TrackView() {
-  const pathname = usePathname();
-  const count = use(track("view", pathname));
+  const count = useCount("view", usePathname());
   return <>{Intl.NumberFormat().format(count)} views</>;
 }

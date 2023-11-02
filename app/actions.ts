@@ -3,7 +3,7 @@
 const endpoint = "https://stats.twitchy.workers.dev";
 
 export async function trackView(pathname: string) {
-  const res = await fetch(endpoint + pathname, {
+  await fetch(endpoint + pathname, {
     method: "POST",
     cache: "no-store",
   });

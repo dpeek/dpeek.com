@@ -11,7 +11,7 @@ export class Counter implements DurableObject {
   async fetch(request: Request) {
     const url = new URL(request.url);
     const pathname = url.searchParams.get("pathname") ?? "";
-    const headers = { "Access-Control-Allow-Origin": "https://dpeek.com" };
+    const headers = { "Access-Control-Allow-Origin": "*" };
 
     switch (url.pathname) {
       case "/view": {

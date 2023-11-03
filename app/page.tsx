@@ -32,9 +32,6 @@ export default async function Page() {
       new Date(a.entry.date).getTime() - new Date(b.entry.date).getTime(),
   );
 
-  console.log("are there posts?");
-  console.log(posts.length);
-
   return (
     <div className="mx-auto max-w-xl p-6 space-y-10">
       <p>

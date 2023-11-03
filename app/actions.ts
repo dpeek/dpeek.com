@@ -18,5 +18,5 @@ export const getViews = unstable_cache(
     return json as { pathname: string; count: number }[];
   },
   ["views"],
-  { revalidate: 30 },
+  { revalidate: 5 },
 );

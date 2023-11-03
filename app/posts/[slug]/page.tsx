@@ -4,8 +4,6 @@ import { Metadata } from "next";
 import { reader } from "../../reader";
 import { Views } from "../../views";
 
-export const runtime = "nodejs";
-
 type PageProps = {
   params: { slug: string };
 };

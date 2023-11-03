@@ -3,8 +3,6 @@ import Link from "next/link";
 import { reader } from "./reader";
 import { Views } from "./views";
 
-export const runtime = "nodejs";
-
 export const metadata: Metadata = {
   title: "David Peek - Developer, Entrepreneur, Optimist",
   description:

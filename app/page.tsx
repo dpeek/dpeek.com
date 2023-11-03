@@ -1,13 +1,6 @@
-import { Metadata } from "next";
 import Link from "next/link";
 import { reader } from "./reader";
 import { Views } from "./views";
-
-export const metadata: Metadata = {
-  title: "David Peek - Developer, Entrepreneur, Optimist",
-  description:
-    "I'm a fullstack developer, entrepreneur and technology optimist. I'm co-founder and CTO of estii.com - an estimation and pricing platform for solution providers.",
-};
 
 function PostLink({ slug, title }: { slug: string; title: string }) {
   const href = `/posts/${slug}`;

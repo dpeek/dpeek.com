@@ -1,8 +1,8 @@
 "use server";
 
 import { Suspense } from "react";
-import { getViews } from "./actions";
 import { Counter } from "./counter";
+import { getViews } from "./stats";
 
 const fallback = (
   <p className="rounded bg-gray-700 text-gray-700 animate-pulse">X views</p>

@@ -2,7 +2,6 @@ import { DocumentRenderer } from "@keystatic/core/renderer";
 import { format } from "date-fns";
 import { Metadata } from "next";
 import { reader } from "../../reader";
-import { Views } from "../../views";
 
 type PageProps = {
   params: { slug: string };
@@ -29,7 +28,6 @@ export default async function Post({ params }: PageProps) {
       <h1 className="text-3xl mb-0">{post.title}</h1>
       <div className="text-gray-500 text-sm flex justify-between items-center">
         <p>{format(new Date(post.date), "MMMM dd, yyyy")}</p>
-        <Views track />
       </div>
       <DocumentRenderer document={await post.content()} />
     </div>

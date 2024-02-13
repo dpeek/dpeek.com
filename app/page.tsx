@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { reader } from "./reader";
-import { Views } from "./views";
 
 function PostLink({ slug, title }: { slug: string; title: string }) {
   const href = `/posts/${slug}`;
@@ -11,9 +10,6 @@ function PostLink({ slug, title }: { slug: string; title: string }) {
       href={href}
     >
       <h3>{title}</h3>
-      <div className="text-gray-500 text-sm">
-        <Views pathname={href} />
-      </div>
     </Link>
   );
 }

@@ -1,4 +1,4 @@
-"use server";
+// "use server";
 
 import { Suspense } from "react";
 import { Counter } from "./counter";
@@ -14,6 +14,7 @@ type Props = {
 };
 
 export async function Views(props: Props) {
+  return null;
   const views = await getViews();
   return (
     <Suspense fallback={fallback}>

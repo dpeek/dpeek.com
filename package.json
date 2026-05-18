@@ -7,6 +7,6 @@
     "save": "formless save"
   },
   "dependencies": {
-    "@dpeek/formless": "0.1.6"
+    "@dpeek/formless": "0.1.7"
   }
 }

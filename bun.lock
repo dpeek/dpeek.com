@@ -5,7 +5,7 @@
     "": {
       "name": "dpeek.com",
       "dependencies": {
-        "@dpeek/formless": "0.1.5",
+        "@dpeek/formless": "0.1.7",
       },
     },
   },
@@ -106,7 +106,7 @@
 
     "@dotenvx/dotenvx": ["@dotenvx/dotenvx@1.66.0", "", { "dependencies": { "commander": "^11.1.0", "dotenv": "^17.2.1", "eciesjs": "^0.4.10", "execa": "^5.1.1", "fdir": "^6.2.0", "ignore": "^5.3.0", "object-treeify": "1.1.33", "picomatch": "^4.0.4", "which": "^4.0.0", "yocto-spinner": "^1.1.0" }, "bin": { "dotenvx": "src/cli/dotenvx.js" } }, "sha512-qlQFhHUjhRDybrinqLAD0MClVZDOrsq80O8eD5iSjz3Qa/4f3Jg7SQrOaSobrRyP1QaWIYLGtGpj2c7H0D8NUw=="],
 
-    "@dpeek/formless": ["@dpeek/formless@0.1.5", "", { "dependencies": { "@cloudflare/vite-plugin": "^1.33.2", "@dnd-kit/react": "^0.4.0", "@dpeek/formless-ui": "^0.1.2", "@tailwindcss/vite": "^4.2.4", "@vitejs/plugin-react": "^6.0.1", "lucide-react": "^1.14.0", "react": "^19.2.5", "react-dom": "^19.2.5", "tailwindcss": "^4.2.4", "vite": "npm:@voidzero-dev/vite-plus-core@latest", "vite-plus": "latest", "wouter": "^3.9.0", "wrangler": "^4.85.0" }, "bin": { "formless": "bin/formless.js" } }, "sha512-hSLEjU2L6JRulpfv885LXHuzvyMVEdShZxxakWZvfrELp0LXYKOc2GWn08WjCupM14GSyjJM999KPTMQgEgB/A=="],
+    "@dpeek/formless": ["@dpeek/formless@0.1.7", "", { "dependencies": { "@cloudflare/vite-plugin": "^1.33.2", "@dnd-kit/react": "^0.4.0", "@dpeek/formless-ui": "^0.1.2", "@tailwindcss/vite": "^4.2.4", "@vitejs/plugin-react": "^6.0.1", "lucide-react": "^1.14.0", "react": "^19.2.5", "react-dom": "^19.2.5", "tailwindcss": "^4.2.4", "vite": "npm:@voidzero-dev/vite-plus-core@latest", "vite-plus": "latest", "wouter": "^3.9.0", "wrangler": "^4.85.0" }, "bin": { "formless": "bin/formless.js" } }, "sha512-KJIY5EKHFLmpHndDVkcpzDjd8H+0pCClQSjzIGiaXZBSHiMmJVi80wFoVw3w1waPKWOH5XuOaTTIDblF5hcMZA=="],
 
     "@dpeek/formless-ui": ["@dpeek/formless-ui@0.1.2", "", { "dependencies": { "@base-ui/react": "^1.3.0", "@fontsource-variable/inter": "^5.2.8", "@platejs/basic-nodes": "^52.3.10", "@platejs/code-block": "^52.3.16", "@platejs/floating": "^52.3.10", "@platejs/link": "^52.3.17", "@platejs/list": "^52.3.10", "@platejs/markdown": "^52.3.22", "@platejs/table": "^52.3.20", "@tailwindcss/typography": "^0.5.19", "@toon-format/toon": "^2.1.0", "class-variance-authority": "^0.7.1", "clsx": "^2.1.1", "cmdk": "^1.1.1", "date-fns": "^4.1.0", "embla-carousel-react": "^8.6.0", "highlight.js": "^11.11.1", "input-otp": "^1.4.2", "lowlight": "^3.3.0", "lucide-react": "^0.577.0", "marked": "^15.0.12", "next-themes": "^0.4.6", "platejs": "^52.3.21", "react": "^19.2.4", "react-colorful": "^5.6.1", "react-day-picker": "^9.14.0", "react-dom": "^19.2.4", "react-resizable-panels": "^4.7.3", "recharts": "2.15.4", "remark-gfm": "^4.0.1", "shadcn": "^4.3.0", "sonner": "^2.0.7", "tailwind-merge": "^3.5.0", "tailwindcss": "^4.2.1", "tw-animate-css": "^1.4.0", "use-stick-to-bottom": "^1.0.36", "vaul": "^1.1.2" } }, "sha512-QeCBg5ipEcv5JQ2io4wUSr/h7scyKBSmaCst2E6qaY1qxmgsRVSlOd3xpcLrgm4l8ZZJTDNL5OmsrlDhkbdDXQ=="],
 
